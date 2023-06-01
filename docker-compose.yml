@@ -19,4 +19,4 @@ services:
     #volumes:
     #  - ./public/:/usr/local/nginx/html
     restart: on-failure
-    container_name: tianlin-nginx
+    container_name: tianlin-springboot
