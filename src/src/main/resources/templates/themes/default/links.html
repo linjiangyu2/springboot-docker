@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+    <style>
+        .footer-social {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow-y: hidden;
+        }
+    </style>
+    <link href="https://cdn1.tianli0.top/gh/linjiangyu2/halo/sakana.css" rel="stylesheet"></link>
+    <title>Links</title>
+</head> 
+<div th:replace="themes/default/header::header(title='友情链接',keywords=null)"></div> 
+<body> 
+    <article class="main-content post-page"> 
+        <div id="post-content" class="post-content"> 
+            <h3>友情链接</h3> 
+            <ul class="flinks"> 
+                <th:block th:each="link : ${links}"> 
+                    <li><img src="https://cdn1.tianli0.top/gh/linjiangyu2/halo/img/fa.jpg"/><a th:href="${link.slug}" target="_blank" th:text="${link.name}"></a></li> 
+                </th:block> 
+            </ul> 
+            <h3>链接须知</h3> 
+            <blockquote> 
+                <ul> 
+                    <li><p>🎉本站支持交换友链，在您提出申请之前，请将本站添加至友链</p></li> 
+                    <li><p>🥗为了保障本站用户，本站仅支持个人网站的友链申请</p></li> 
+                    <li><p>🍧申请本站友链需要拥有独立域名（非免费域名），建议开启全站HTTPS</p></li> 
+                    <li><p>🥫如果友情链接已经添加，请保持网站的正常访问，会定期清理僵尸网站</p></li> 
+                    <li><p>🍖网站有一定的实质性内容和主题，不能是空壳网站和练手网站</p></li> 
+                    <li><p>💕感谢您对本站的支持，如果您已经满足上述要求，请在下方表单提交友链申请~~~</p></li> 
+                </ul> 
+            </blockquote> 
+            <h3>我的友链信息</h3> 
+            <pre><code class="lang-md hljs markdown">
+站点名称 Tianlin_Zz
+站点截图 https://cdn1.tianli0.top/gh/linjiangyu2/halo/img/siteshot.jpg
+站点链接 https://linjiangyu.com/
+站长头像 https://cdn1.tianli0.top/gh/linjiangyu2/halo/img/fa.jpg
+站点描述 这世界温暖的人如树一样多 我也想成为其中的一颗
+站点关键词 Tianlin_Zz,linjiangyu,运维,你会发光叭,Tianlin</code></pre>
+        </div> 
+    </article>
+    <div class="sakana-box"></div>
+    <script src="https://cdn1.tianli0.top/gh/linjiangyu2/halo/sakana.js"></script>
+    <script>
+        Sakana.init({
+            el:         '.sakana-box',     // 启动元素 node 或 选择器
+            scale:      .5,                // 缩放倍数
+            canSwitchCharacter: true,      // 允许换角色
+        });
+    </script>
+</body> 
+<div th:replace="themes/default/footer::footer"></div> 
+</html>

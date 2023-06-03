@@ -4,19 +4,16 @@ services:
   tianlin-sb:
     build:
       context: .
-      args:
-        JAR_NAME: Tianlin-V1.0.jar
-    environment:
-      JAR_NAME: Tianlin-V1.0.jar
     ports:
       - "80:80"
     healthcheck:
-      test: ["CMD","ps aux | grep ${JAR_NAME} | grep -v grep"]
+      #test: ["CMD","netstat -tnlp | grep $(grep -i 'server.port' /tianlin/src/main/resources/application.properties | cut -d'=' -f2)"]
+      test: ["CMD","/bin/sh","-c","ps aux | grep ${JRE_NAME} | grep -v grep"]
       interval: 1m
       timeout: 5s
       retries: 1
       start_period: 60s
-    #volumes:
-    #  - ./public/:/usr/local/nginx/html
+    volumes:
+      - ./src/:/tianlin/
     restart: on-failure
     container_name: tianlin-springboot
