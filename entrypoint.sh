@@ -38,7 +38,7 @@ mvn package
 export JRE_NAME=$(ls -l target  | grep '\.jar$' | awk '{print $NF}')
 mv target/${JRE_NAME} /
 cd /
-rm -rf /tianlin
+#rm -rf /tianlin
 apk cache clean
 
 java -jar /${JRE_NAME}
