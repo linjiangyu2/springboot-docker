@@ -25,7 +25,7 @@ services:
       - "80:80"
     environment:
       # 对应以上数据库名
-      DATABASE: chen
+      DATABASE: k
       # 对应以上数据库密码
       MYSQL_ROOT_PASSWORD: 123456
     links:
