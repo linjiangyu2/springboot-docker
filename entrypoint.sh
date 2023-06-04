@@ -34,6 +34,8 @@ cat > ~/.m2/settings.xml <<END
 </settings>
 END
 cd /tianlin
+sed -ri "s@(spring.datasource.url=jdbc:mysql://).*(\?useSSL=.*)@\1db:3306/${DATABASE}\2@g" /tianlin/src/main/resources/application-jdbc.properties && sed -ri "s@(spring.datasource.password=).*@\1${MYSQL_ROOT_PASSWORD}@g" /tianlin/src/main/resources/application-jdbc.properties
+sed -ri "s@(spring.datasource.username=).*@\1root@g" /tianlin/src/main/resources/application-jdbc.properties
 mvn package
 export JRE_NAME=$(ls -l target  | grep '\.jar$' | awk '{print $NF}')
 mv target/${JRE_NAME} /
