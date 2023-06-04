@@ -10,7 +10,7 @@ services:
       # 数据库密码
       MYSQL_ROOT_PASSWORD: 123456
       # 导入的数据库sql文件(可binary)
-      SQL_FILE: chen.sql
+      #SQL_FILE: chen.sql
     ports:
     - "3306:3306"
     - "33060:33060"
